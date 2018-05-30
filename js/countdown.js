@@ -23,3 +23,38 @@ function updateDate() {
 
 updateDate();
 setInterval(updateDate, 60 * 1000);
+
+// for mailchimp mailing list subscription pop up
+(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';}(jQuery));var $mcj = jQuery.noConflict(true);
+
+function clear() {
+    document.getElementById('modal').style.display = 'none';
+
+    // remove validation stuff
+    var errorMessage = document.getElementById('mce-error-response');
+    var successMessage = document.getElementById('mce-success-response');
+    errorMessage.textContent = '';
+    errorMessage.style.display = 'none';
+    successMessage.textContent = '';
+    successMessage.style.display = 'none';
+
+    var messages = document.querySelectorAll('div.mce_inline_error');
+    for (var i = 0; i < messages.length; i++) {
+        messages[i].textContent = '';
+    }
+    document.getElementById('mce-EMAIL').classList.remove('mce_inline_error');
+}
+
+document.getElementById('subscribe').onclick = function() {
+    document.getElementById('modal').style.display = 'block';
+}
+
+document.getElementById('modal').onclick = function(event) {
+    if(event.target.id == 'modal') {
+        clear();
+    }
+}
+
+document.getElementById('close').onclick = function() {
+    clear();
+}
