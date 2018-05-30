@@ -5,7 +5,7 @@
 
 body {
     width: 100%;
-    height: 1000%;
+    height: 100%;
     margin: 0;
     overflow-x: hidden;
 
@@ -118,6 +118,7 @@ but since we offset by a bunch depending on resolution, this can't be fixed
     top: calc(1810 / 1440 * 100vw);
     width: 100%;
     font-size: 1.25em;
+    margin-bottom: 1em;
 }
 
 /*@media only screen and (min-width: 1080px) {*/
