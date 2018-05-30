@@ -101,7 +101,7 @@ a.button:hover::after {
     left: -270%;
 }
 
-a.button:hover {
+#content a.button:hover {
     color: #0B160C;
 }
 
