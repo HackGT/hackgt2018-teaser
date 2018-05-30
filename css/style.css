@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 @font-face {
     font-family: Hamurz;
     src: url("../assets/Hamurz.ttf")  format("truetype");
@@ -130,6 +132,10 @@ but since we offset by a bunch depending on resolution, this can't be fixed
     text-align: center;
 }
 
+.half-col p {
+    font-family: 'Open Sans', sans-serif;
+}
+
 /* styles for mailchimp form */
 
 #modal {
@@ -155,10 +161,19 @@ but since we offset by a bunch depending on resolution, this can't be fixed
     transform: translate(-50%, -50%);
 }
 
+#mc_embed_signup form {
+    padding: .5em 0 .5em 1em;
+}
+
 #mc_embed_signup .button {
     background-color: #0B160C;
     font-family: 'Hamurz', sans-serif; 
     border: 1px solid white;
+    font-size: 1em;
+    color: #fff;
+    padding: .5% 1%;
+    transition: all 0.23s ease-in-out 0s;
+    cursor: pointer;
 }
 
 #mc_embed_signup .button:hover {
@@ -180,6 +195,42 @@ but since we offset by a bunch depending on resolution, this can't be fixed
 
 #mc_embed_signup h2 {
     padding-right: 1.5em;
+}
+
+#mc_embed_signup .mc-field-group {
+    clear: left;
+    position: relative;
+    width: 95%;
+    padding-bottom: 3%;
+    min-height: 50px;
+}
+
+#mc_embed_signup .indicates-required {
+    text-align: right;
+    margin-right: 5%;
+    font-size: 12px;
+}
+
+#mc_embed_signup .asterisk {
+    color: #e85c41;
+    font-size: 150%;
+    font-weight: normal;
+    position: relative;
+    top: 5px;
+}
+
+#mc_embed_signup input {
+    border: 1px solid #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#mc_embed_signup .mc-field-group input {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    text-indent: 2%;
 }
 
 /*@media only screen and (min-width: 1080px) {*/
@@ -207,6 +258,7 @@ but since we offset by a bunch depending on resolution, this can't be fixed
 
     .half-col > p {
         padding: 0.25em 1em;
+        font-size: .8em;
     }
 
     #logo {
