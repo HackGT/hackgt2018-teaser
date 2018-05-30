@@ -7,7 +7,7 @@ body {
     width: 100%;
     height: 1000%;
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 
     font-family: 'Hamurz', sans-serif;
 
@@ -20,7 +20,8 @@ body {
 }
 
 #countdown {
-    padding-top: 10%;
+    padding-top: 15%;
+    margin: 0;
 }
 
 #countdown, #time-table {
@@ -28,19 +29,139 @@ body {
     font-size: 1.5em;
 }
 
-#time-table {
+table {
     table-layout: fixed;
     width: 80%;
     margin-left: 10%;
 }
 
+.row {
+    width: 80%;
+    margin-left: 10%;
+}
+
+p.button-parent {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    float: left;
+}
+
+a.button {
+    margin: 0 auto;
+    padding: 0.25em 1em;
+    padding-top: 0.4em;
+    color: white;
+    text-decoration: none;
+    border: solid white 3px;
+    border-radius: 0.5em;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    transition: 0.25s all;
+}
+
+a.button::before {
+    content: "";
+    /*background-color: white;*/
+    position: absolute;
+    top: 0;
+    left: -450%;
+    height: 20em;
+    width: 20em;
+    /* 50 - sqrt(20) */
+    transform: translateY(-9.3em) rotate(45deg);
+    z-index: -100;
+    transition: 0.25s all;
+    /*border-radius: 0.75em;*/
+    border: solid 4px white;
+}
+
+a.button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -435%;
+    height: 18em;
+    width: 18em;
+    /* 50 - sqrt(20) */
+    transform: translateY(-8.1em) rotate(45deg);
+    z-index: -100;
+    transition: 0.25s all;
+    /*border-radius: 0.5em;*/
+    background-color: white;
+}
+
+a.button:hover::before {
+    left: -310%;
+}
+
+a.button:hover::after {
+    left: -270%;
+}
+
+a.button:hover {
+    color: #0B160C;
+}
+
+/*
+BG image is 1440x1810, and width is 100%, so
+if we want to start where the picture ends,
+we need to do 1810 / 1440 * vw
+but since we offset by a bunch depending on resolution, this can't be fixed
+*/
+#content {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: calc(1810 / 1440 * 100vw);
+    width: 100%;
+    font-size: 1.25em;
+}
+
 /*@media only screen and (min-width: 1080px) {*/
 @media only screen and (min-aspect-ratio: 1/1) {
     body {
-        background-position: 0 -25vw;
+        background-position: 0 -35vw;
     }
 
     #countdown, #time-table {
         font-size: 2em;
+    }
+
+    #countdown {
+        padding-top: 10%;
+    }
+
+    #content {
+        top: calc(1810 / 1440 * 100vw - 35vw);
+    }
+
+    .half-col {
+        width: 50%;
+        float: left;
+    }
+
+    .half-col > p {
+        padding: 0.25em 1em;
+    }
+}
+
+@media only screen and (min-aspect-ratio: 5/2) {
+    body {
+        background-position: 0 -45vw;
+    }
+
+    #countdown, #time-table {
+        font-size: 1.5em;
+    }
+
+    #countdown {
+        padding-top: 5%;
+    }
+
+    #content {
+        top: calc(1810 / 1440 * 100vw - 45vw);
     }
 }
