@@ -1,6 +1,6 @@
 // October 19th at 9pm
 // EDT is 4 hours behind UTC (zulu)
-var startDate = new Date("2018-10-19T21:00:00-0400");
+var startDate = new Date("2018-10-19T21:00:00-04:00");
 
 var days = document.getElementById('days');
 var hours = document.getElementById('hours');
