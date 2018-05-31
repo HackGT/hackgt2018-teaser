@@ -1,28 +1,32 @@
-// october 19th at 9pm
-// need to put in as a UTC date so browser timezone doesn't mess with it
-var startDate = new Date(Date.UTC(2018, 9, 20, 2));
+// October 19th at 9pm
+// EDT is 4 hours behind UTC (zulu)
+var startDate = new Date("2018-10-19T21:00:00-0400");
 
 var days = document.getElementById('days');
 var hours = document.getElementById('hours');
 var minutes = document.getElementById('minutes');
 
 function updateDate() {
-    var dateDelta = startDate - new Date();
-    var minuteDelta = dateDelta / (1000 * 60);
+    var dateDelta = (startDate - Date.now()) / 1000;
+    var minuteDelta = dateDelta / 60;
     var hourDelta = minuteDelta / 60;
     var dayDelta = hourDelta / 24;
 
     minuteDelta %= 60;
     hourDelta %= 24;
 
-    days.innerHTML = Math.floor(dayDelta);
-    hours.innerHTML = Math.floor(hourDelta);
-    minutes.innerHTML = Math.floor(minuteDelta);
+    days.textContent = Math.floor(dayDelta);
+    hours.textContent = Math.floor(hourDelta);
+    minutes.textContent = Math.floor(minuteDelta);
 
 }
 
 updateDate();
-setInterval(updateDate, 60 * 1000);
+var secondsToMinuteMark = 60 - ((Date.now() / 1000) % 60);
+setTimeout(function() {
+    updateDate();
+    setInterval(updateDate, 60 * 1000);
+}, Math.round(secondsToMinuteMark * 1000));
 
 // for mailchimp mailing list subscription pop up
 document.getElementById('subscribe').onclick = function() {
