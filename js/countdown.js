@@ -28,17 +28,16 @@ setTimeout(function() {
     setInterval(updateDate, 60 * 1000);
 }, Math.round(secondsToMinuteMark * 1000));
 
-// for mailchimp mailing list subscription pop up
-document.getElementById('subscribe').onclick = function() {
-    document.getElementById('modal').style.display = 'block';
+// For mailchimp mailing list subscription pop up
+function toggleModal(shouldShow) {
+    document.getElementById("modal").style.display = shouldShow ? "block" : "none";
 }
 
-document.getElementById('modal').onclick = function(event) {
-    if(event.target.id == 'modal') {
-        document.getElementById('modal').style.display = 'none';
+document.getElementById("subscribe").addEventListener("click", toggleModal.bind(null, true));
+document.getElementById("mc-embedded-subscribe-form").addEventListener("submit", toggleModal.bind(null, false));
+document.getElementById("modal").addEventListener("click", function(event) {
+    if (event.target.id == "modal") {
+        toggleModal(false);
     }
-}
-
-document.getElementById('close').onclick = function() {
-    document.getElementById('modal').style.display = 'none';
-}
+});
+document.getElementById("close").addEventListener("click", toggleModal.bind(null, false));
