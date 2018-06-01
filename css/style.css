@@ -72,7 +72,7 @@ a.button::before {
     /*background-color: white;*/
     position: absolute;
     top: 0;
-    left: -450%;
+    left: -26em;
     height: 20em;
     width: 20em;
     /* 50 - sqrt(20) */
@@ -87,7 +87,7 @@ a.button::after {
     content: "";
     position: absolute;
     top: 0;
-    left: -435%;
+    left: -24em;
     height: 18em;
     width: 18em;
     /* 50 - sqrt(20) */
@@ -99,11 +99,11 @@ a.button::after {
 }
 
 a.button:hover::before {
-    left: -310%;
+    left: -16em;    
 }
 
 a.button:hover::after {
-    left: -270%;
+    left: -13.8em;
 }
 
 #content a.button:hover {
