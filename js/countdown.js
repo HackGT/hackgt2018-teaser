@@ -34,6 +34,9 @@ function toggleModal(shouldShow) {
 }
 
 document.getElementById("subscribe").addEventListener("click", toggleModal.bind(null, true));
+document.getElementById("subscribe").addEventListener("click", function() {
+    document.getElementById("mce-EMAIL").value = "";
+});
 document.getElementById("mc-embedded-subscribe-form").addEventListener("submit", toggleModal.bind(null, false));
 document.getElementById("modal").addEventListener("click", function(event) {
     if (event.target.id == "modal") {
