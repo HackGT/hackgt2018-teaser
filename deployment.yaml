@@ -1,1 +1,4 @@
+git:
+    remote: https://github.com/HackGT/hackgt2018-teaser.git
+    branch: master
 target_port: 80
